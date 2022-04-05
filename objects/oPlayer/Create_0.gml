@@ -4,7 +4,7 @@ ySp = 0;
 xDec = 0.8;
 
 baseAcc = 3
-grav = 2
-jumpSp = -30
+grav = 1
+jumpSp = -10
 mxSp = 20
 
