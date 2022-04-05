@@ -7,5 +7,4 @@ baseAcc = 3
 grav = 2
 jumpSp = -30
 mxSp = 20
-width = sprite_width
-height = sprite_height
+

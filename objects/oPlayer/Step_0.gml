@@ -11,8 +11,8 @@ else{
 	xAcc = 0	
 }
 
-if(keyboard_check_pressed(vk_space) and y == room_height - 45){
-	ySp = jumpSp	
+if(keyboard_check_pressed(vk_space) and y == room_height - sprite_height/2){
+	ySp = jumpSp
 }
 
 //Calculating Speed
@@ -21,6 +21,5 @@ ySp = min(30,(ySp + grav))
 
 
 //Applying Speed to Position
-x = clamp(x + xSp,width/2,room_width-(width/2))
-
-y = clamp(y + ySp,0,room_height-height/2)
+x = clamp(x + xSp,sign(image_xscale)*sprite_width/2,room_width-sprite_width/2)
+y = clamp(y + ySp,sprite_height/2,room_height-sprite_height/2)
