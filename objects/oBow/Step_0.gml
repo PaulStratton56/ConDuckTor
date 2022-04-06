@@ -1,7 +1,6 @@
 x=oPlayer.x;
 y=oPlayer.y;
 
-image_xscale=oPlayer.image_xscale;
 image_angle=oPlayer.image_angle;
 
 if !keyboard_check(vk_space){
