@@ -36,7 +36,7 @@ if(keyboard_check_pressed(vk_space)){
 xSp = clamp((xSp + xAcc) * xDec,-mxSp,mxSp);
 ySp = min(30,(ySp + grav));
 
-//collisions
+//Collisions
 if (x+sprite_width/2+xSp>=oCart.x+oCart.sprite_width){
 	xSp=0;
 	x=oCart.x+oCart.sprite_width-sprite_width/2;
