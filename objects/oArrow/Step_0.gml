@@ -4,13 +4,17 @@ while (place_meeting(x,y,oArrow)){
 	instance_destroy();
 }
 //make relative to player and bow
-image_xscale=oBow.image_xscale;
+oldFlightPaths=true;
+
 if(xSp==0){
 	image_angle=oBow.image_angle;
 }
 else{
 	//image_angle=arctan((x-startx)/1024+4/5);
-	image_angle=(180/pi)*arctan2((-(x-startx+49)/(v*cos(initialAngle*pi/180))+v*sin(initialAngle*pi/180)),(v*cos(initialAngle*pi/180)));
+	image_angle=(180/pi)*arctan2((-(x-startx+sign(mouse_x-oPlayer.x)*49)/(xSp)+initialYSp),(xSp));
+	if(oldFlightPaths){
+		instance_create_layer(x,y,"IMain", oTempArrow);
+	}
 }
 
 
@@ -42,12 +46,13 @@ else if(keyboard_check_released(vk_space)){
 	grav=1;
 	v=8*oBow.image_index
 	initialAngle=image_angle;
-	xSp=v*cos(image_angle*pi/180);
-	ySp=-v*sin(image_angle*pi/180);
+	xSp=v*cos(image_angle*pi/180)+oPlayer.xSp;
+	ySp=-v*sin(image_angle*pi/180)+oPlayer.ySp;
+	initialYSp=v*sin(initialAngle*pi/180)+oPlayer.ySp
 	startx=x;
 	//starty=y;
 }
-if keyboard_check_pressed(vk_shift){
+if (keyboard_check_pressed(vk_shift)){
 	instance_destroy();
 }
 if (xSp!=0){
