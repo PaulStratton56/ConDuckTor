@@ -1,5 +1,4 @@
 
-
 //Change this variable to alter the room and the number of cars.
 cartNumber = 7;
 
@@ -13,5 +12,3 @@ while((275*i+128) <= room_width){
 	}
 	i++;
 }
-
-
