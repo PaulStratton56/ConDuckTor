@@ -1,19 +1,14 @@
-weapons = [oArrow,oSword]
-for (i=0;i<array_length(weapons);i++){
-	if(place_meeting(x,y,weapons[i])){
-		instance_destroy(weapons[i]);
-		instance_destroy();
-		break;
-	}
+grav=1;
+if (x+xSp>=xstart+64){
+	xSp=-random(2)-1;
 }
-
-//Move left of right based on where it is in relation to current position
-if (x+xSp>=xstart+64){ xSp=-1; }
-else if(x+xSp<=xstart-64){ xSp=1; }
-
+else if(x+xSp<=xstart-64){
+	xSp=random(2)+1;
+}
 x+=xSp;
-
-//Kill the player on contact
+y+=ySp;
+ySp+=grav;
+if(y>550){ySp=0;}
 if(place_meeting(x,y,oPlayer)){
 	game_restart();
 }
