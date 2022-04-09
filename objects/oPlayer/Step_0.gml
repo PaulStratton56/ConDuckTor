@@ -3,18 +3,28 @@ if(image_yscale==0){image_yscale=1};
 image_angle=point_direction(x,y,mouse_x,mouse_y);
 
 #region//movement
-	if(keyboard_check(ord("D"))){
-		xAcc = baseAcc;
-	}
-	else if(keyboard_check(ord("A"))){
-		xAcc = -baseAcc;
-	}
-	else{
-		xAcc = 0;
-	}
-	if(keyboard_check_pressed(ord("W")) && y+image_yscale*sprite_height/2==oCart.y){
-		ySp = jumpSp;
-	}
+if(keyboard_check(ord("D"))){
+	xAcc = baseAcc;
+}
+else if(keyboard_check(ord("A"))){
+	xAcc = -baseAcc;
+}
+else{
+	xAcc = 0;
+}
+
+if(keyboard_check_pressed(ord("W")) && y == oCart.y-(abs(sprite_height)/2)){
+	ySp = jumpSp;
+}
+#endregion
+
+#region//speed and position bounds
+	xSp = clamp((xSp + xAcc) * xDec,-mxSp,mxSp);
+	ySp = min(30,(ySp + grav));
+	x = clamp(x + xSp,abs(sprite_width/2),room_width-abs(sprite_width/2));
+	if(x==abs(sprite_width/2) || x==room_width-abs(sprite_width/2)){xSp=0;}
+	y = clamp(y + ySp,abs(sprite_height/2),oCart.y-abs(sprite_height/2));
+	if(y==abs(sprite_height/2)|| y==oCart.y-abs(sprite_height/2)){ySp=0;}
 #endregion
 
 #region//choosing weapon
@@ -31,15 +41,3 @@ image_angle=point_direction(x,y,mouse_x,mouse_y);
 	}
 #endregion
 
-#region//speed and position bounds //may cause bugs with camera, also might be a way to shorten conditions on if statements
-	xSp = clamp((xSp + xAcc) * xDec,-mxSp,mxSp);
-	ySp = min(30,(ySp + grav));
-	x = clamp(x + xSp,abs(sprite_width/2),room_width-abs(sprite_width/2));
-	if(x==abs(sprite_width/2) || x==room_width-abs(sprite_width/2)){xSp=0;}
-	y = clamp(y + ySp,abs(sprite_height/2),oCart.y-abs(sprite_height/2));
-	if(y==abs(sprite_height/2)|| y==oCart.y-abs(sprite_height/2)){ySp=0;}
-#endregion
-
-if(!instance_exists(oCyberduck)){
-	game_restart();
-}

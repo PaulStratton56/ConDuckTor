@@ -5,7 +5,7 @@
   "origin": 9,
   "preMultiplyAlpha": false,
   "edgeFiltering": false,
-  "collisionTolerance": 0,
+  "collisionTolerance": 254,
   "swfPrecision": 2.525,
   "bbox_left": 0,
   "bbox_right": 256,
