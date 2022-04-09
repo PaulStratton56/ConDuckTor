@@ -46,9 +46,9 @@ else if(keyboard_check_released(vk_space)){
 	grav=1;
 	v=8*oBow.image_index;
 	initialAngle=image_angle;
-	xSp=v*cos(image_angle*pi/180)//+oPlayer.xSp;
-	ySp=-v*sin(image_angle*pi/180)//+oPlayer.ySp;
-	initialYSp=v*sin(initialAngle*pi/180)//+oPlayer.ySp
+	xSp=v*cos(image_angle*pi/180)+oPlayer.xSp;
+	ySp=-v*sin(image_angle*pi/180)+oPlayer.ySp;
+	initialYSp=v*sin(initialAngle*pi/180)+oPlayer.ySp
 	startx=x;
 	//starty=y;
 }

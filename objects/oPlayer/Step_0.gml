@@ -41,6 +41,7 @@ ySp = min(30,ySp + grav);
 
 //Applying Speed to Position
 x = clamp(x + xSp,abs(sprite_width)/2,room_width-abs(sprite_width)/2)
+if(x = abs(sprite_width)/2 || x = room_width-abs(sprite_width)/2){ xSp = 0; }
 y = clamp(y + ySp,abs(sprite_height)/2,(oCart.y)-(abs(sprite_height)/2))
-
+if(y = abs(sprite_height)/2 || y = (oCart.y)-(abs(sprite_height)/2)){ ySp = 0; }
 

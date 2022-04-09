@@ -1,7 +1,7 @@
 
 
 //Change this variable to alter the room and the number of cars.
-cartNumber = 5;
+cartNumber = 7;
 
 //Room and cart generation
 room_width = (275*cartNumber)+40;
