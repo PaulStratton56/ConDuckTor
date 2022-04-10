@@ -10,10 +10,10 @@ image_xscale=sign(-xSp);
 if(image_xscale==0){image_xscale=1;}
 
 #region//agro - moves faster and chases player
-	if(abs(x - oPlayer.x) < 100 && sign(oPlayer.x-x)==sign(xSp)){
+	if(abs(x - oPlayer.x) < range && sign(oPlayer.x-x)==sign(xSp)){
 		seen = true;
 	}
-	if (abs(oPlayer.x - x) > 300){
+	if (abs(oPlayer.x - x) > outofRange){
 		seen = false;
 	}
 

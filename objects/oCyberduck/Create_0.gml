@@ -1,4 +1,4 @@
-xSp=random(2);
+xSp=random(1)+1;
 ySp=0;
 range=150;
 outofRange=300;
