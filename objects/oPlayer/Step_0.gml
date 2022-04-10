@@ -13,7 +13,7 @@ else{
 	xAcc = 0;
 }
 
-if(keyboard_check_pressed(ord("W")) && y == oCart.y-(abs(sprite_height)/2)){
+if(keyboard_check_pressed(ord("W"))){// && y == oCart.y-(abs(sprite_height)/2)){
 	ySp = jumpSp;
 }
 #endregion
