@@ -1,0 +1,2 @@
+drawspeed=1;
+
