@@ -42,29 +42,28 @@ if(id.nocked){
 		}
 	#endregion
 }
-else{
-	#region//flight trajectory
-		x+=xSp;
-		y+=ySp;
-		image_angle = darctan2(-ySp,xSp);
-		if(trajectories){instance_create_layer(x,y,"IMain", oTrajectory).myArrow=id;}
-		ySp+=grav;
-		//if out of bounds of rectangle except on top cause it should fall back down, destroy arrow and replace with a fake arrow // maybe should only make it the bottom boundary
-		if(x<0 || x>room_width || y+lengthdir_y(sprite_width,image_angle)>620){
-			if(y+lengthdir_y(sprite_width,image_angle)>620){
-				fakeArrowID = instance_create_layer(x,y,"IMain",oFakeArrow)
-				array_push(oWatcher.arrows,fakeArrowID);
-				fakeArrowID.associatedArrow=id;
-			}
+else{//flight trajectory
+	x+=xSp;
+	y+=ySp;
+	image_angle = darctan2(-ySp,xSp);
+	if(trajectories){instance_create_layer(x,y,"Player", oTrajectory).myArrow=id;}
+	ySp+=grav;
+	//if out of bounds of rectangle except on top cause it should fall back down, destroy arrow and replace with a fake arrow // maybe should only make it the bottom boundary
+	if(x<0 || x>room_width || y+lengthdir_y(sprite_width,image_angle)>620){
+		if(y+lengthdir_y(sprite_width,image_angle)>620){
+			fakeArrowID = instance_create_layer(x,y,"Player",oFakeArrow)
+			array_push(oWatcher.arrows,fakeArrowID);
+			fakeArrowID.associatedArrow=id;
+		}
+		instance_destroy();
+	}
+	if(place_meeting(x,y,oCyberduck)){
+		oPlayer.yMin=oCart.y;
+		with(instance_place(x,y,oCyberduck)){
 			instance_destroy();
 		}
-		if(place_meeting(x,y,oCyberduck)){
-			with(instance_place(x,y,oCyberduck)){
-				instance_destroy();
-			}
-			instance_destroy();
-		}
-	#endregion
+		instance_destroy();
+	}
 }
 
 if (keyboard_check_pressed(vk_shift)&&id.nocked){

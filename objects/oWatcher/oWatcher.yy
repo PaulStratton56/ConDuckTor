@@ -1,9 +1,13 @@
 {
-  "spriteId": null,
+  "spriteId": {
+    "name": "sWatcher",
+    "path": "sprites/sWatcher/sWatcher.yy",
+  },
   "solid": false,
   "visible": true,
+  "managed": true,
   "spriteMaskId": null,
-  "persistent": false,
+  "persistent": true,
   "parentObjectId": null,
   "physicsObject": false,
   "physicsSensor": false,

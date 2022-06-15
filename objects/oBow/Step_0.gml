@@ -6,7 +6,7 @@ image_angle=oPlayer.image_angle;
 if(keyboard_check_pressed(vk_space)){
 	nearestArrow = instance_nearest(x,y,oArrow)
 	if(nearestArrow == noone || !nearestArrow.nocked){
-		instance_create_layer(x,y,"IMain", oArrow);
+		instance_create_layer(x,y,"Player", oArrow);
 	}
 }
 #region//draw and release bow

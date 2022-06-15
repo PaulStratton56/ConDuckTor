@@ -5,7 +5,7 @@ y+=ySp;
 ySp+=grav;
 if(y>550){ySp=0;}
 
-//duck faces direction is is walking
+//duck faces direction it is walking
 image_xscale=sign(-xSp);
 if(image_xscale==0){image_xscale=1;}
 
