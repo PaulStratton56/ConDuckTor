@@ -7,6 +7,7 @@ if(!playersHealth){//players health bar should be permanent
 		y=myEnemy.y-30;
 	}
 	else{
+		time_source_destroy(healthbar_fades);
 		instance_destroy();
 	}
 }

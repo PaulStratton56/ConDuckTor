@@ -21,4 +21,3 @@ fineNow = function(){
 		tooEarly=false;
 }
 swingDelay = time_source_create(time_source_game,.5,time_source_units_seconds,fineNow)
-damage=0;
