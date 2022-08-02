@@ -2,13 +2,11 @@ x=oPlayer.x;
 y=oPlayer.y;
 image_angle=oPlayer.image_angle;
 
-//nock an arrow if space is pressed and no arrow nocked already
+//nock an arrow
 if(keyboard_check_pressed(vk_space)){
-	nearestArrow = instance_nearest(x,y,oArrow)
-	if(nearestArrow == noone || !nearestArrow.nocked){
-		instance_create_layer(x,y,"Player", oArrow);
-	}
+	instance_create_layer(x,y,"Player",oArrow);
 }
+
 #region//draw and release bow
 	if (!keyboard_check(vk_space) || !instance_exists(oArrow)){
 		image_index=0;

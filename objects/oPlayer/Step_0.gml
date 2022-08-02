@@ -2,9 +2,10 @@ image_yscale=sign(mouse_x-x);
 if(image_yscale==0){image_yscale=1};
 image_angle=point_direction(x,y,mouse_x,mouse_y);
 
+yMin=room_yMin;
+
 #region//movement
-	if(keyboard_check(ord("D")))
-	{
+	if(keyboard_check(ord("D"))){
 		xAcc = baseAcc;
 	}
 	else if(keyboard_check(ord("A"))){
@@ -14,8 +15,10 @@ image_angle=point_direction(x,y,mouse_x,mouse_y);
 		xAcc = 0;
 	}
 
-	if(keyboard_check_pressed(ord("W"))){// && y == oCart.y-(abs(sprite_height)/2)){
-		ySp = jumpSp;
+	if(keyboard_check_pressed(ord("W"))){
+		if(y == room_yMin-(abs(sprite_height)/2)){
+			ySp = jumpSp;
+		}
 	}
 #endregion
 
@@ -28,19 +31,27 @@ image_angle=point_direction(x,y,mouse_x,mouse_y);
 	if(y==abs(sprite_height/2)|| y==yMin-abs(sprite_height/2)){ySp=0;}
 #endregion
 
-#region//choosing weapon
-if(room!=rStationHub){
-	if(keyboard_check_pressed(ord("1"))){
-		instance_destroy(currentWeapon);
-		currentWeapon=oSword;
+#region//choosing and using weapon
+	if(room!=rStationHub){
+		if(keyboard_check_pressed(ord("1"))){
+			instance_destroy(currentWeapon);
+			currentWeapon=oSword;
+		}
+		else if(keyboard_check_pressed(ord("2"))){
+			instance_destroy(currentWeapon);
+			currentWeapon=oBow;
+		}
+		if(keyboard_check_pressed(vk_space) && !instance_exists(currentWeapon) && !tooEarly){
+			instance_create_layer(x,y,"Player",currentWeapon);
+			if(currentWeapon==oSword){//time delay before sword swing
+				tooEarly=true;
+				time_source_start(swingDelay);
+			}
+			else{tooEarly=false;}//currently no time delay for bow
+		}
 	}
-	else if(keyboard_check_pressed(ord("2"))){
-		instance_destroy(currentWeapon);
-		currentWeapon=oBow;
-	}
-	if(keyboard_check_pressed(vk_space) && !instance_exists(currentWeapon)){
-		instance_create_layer(x,y,"Player",currentWeapon);
-	}
-}
 #endregion
 
+if(myHealth<=0){
+	game_restart();
+}
