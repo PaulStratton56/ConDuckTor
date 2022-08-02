@@ -7,6 +7,8 @@ draw_set_font(pauseMenuFont);
 
 var spacing = 70;
 
+var textSize = 1;
+
 if(pause){
 	
 	draw_set_color(c_black); //set current draw color to black
@@ -14,13 +16,46 @@ if(pause){
 	draw_rectangle(0, 0, room_width, room_height,0); // draws a rectangle around viewPort
 	
 	draw_set_alpha(1.0); //sets transparency to 60%
-	for (var i = 0; i < array_length_2d(menu, currentSubMenu); ++i) {
+	for (var i = 0; i < array_length(menu[currentSubMenu]); ++i) {
 	
 	//Set Color
-	if i = currentIndex draw_set_color(c_yellow);
-	else draw_set_color(c_white);
-	//
-    draw_text(room_width/2, room_height *0.4 + spacing * i, menu[currentSubMenu, i]); 
+	if i == currentIndex{
+		draw_set_color(c_yellow); 
+		textSize = 1.07;
+		draw_set_swf_aa_level(1);
+	} else {
+		draw_set_color(c_white);
+		textSize = 1;
+		draw_set_swf_aa_level(0);
+	}
+	
+	//scrollable setting?
+	if is_array(menu[currentSubMenu][i]){
+		
+		//get menu
+		var menuArray = menu[currentSubMenu][i];
+		
+		//get map
+		var mapArray = global.settingsMap[? menuArray[1]];
+		
+		//get map selections
+		var limitsArray = mapArray[1];
+		
+		//is this an integer
+		if is_real(limitsArray[0]){
+			//show integer
+			var text = menuArray[0] + string(mapArray[0]);
+		}else{
+			//show string
+			var text = menuArray[0] + limitsArray[mapArray[0]];
+		}
+	}else{	
+		//show plainText
+		var text = menu[currentSubMenu][i]
+	}
+	
+   //draw_text(room_width/2, room_height *0.4 + spacing * i, text); 
+	draw_text_transformed(room_width/2, room_height *0.4 + spacing * i, text, textSize, textSize, 0);
 	
  }
 }
