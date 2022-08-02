@@ -1,5 +1,5 @@
 if(!inactive && !embedded){//inactive if it hits the ground, embedded if it hit an enemy
-	if(id.nocked){
+	if(nocked){
 		if(!instance_exists(oBow)){
 			instance_destroy();
 		}
@@ -37,7 +37,7 @@ if(!inactive && !embedded){//inactive if it hits the ground, embedded if it hit 
 				v=8*oBow.image_index;
 				xSp=v*cos(image_angle*pi/180)+oPlayer.xSp;
 				ySp=-v*sin(image_angle*pi/180)+oPlayer.ySp;
-				id.nocked=false;
+				nocked=false;
 			}
 		#endregion
 	}
@@ -64,18 +64,21 @@ if(!inactive && !embedded){//inactive if it hits the ground, embedded if it hit 
 		if(place_meeting(x,y,oCyberduck)){//hit an enemy
 			embedded=true;
 			myEnemy=instance_place(x,y,oCyberduck); //store enemy that was hit in variable
+			embeddedX=myEnemy.x-x;
+			embeddedY=myEnemy.y-y;
+			//if(myEnemy.knockedback){instance_destroy();}
 			if(myEnemy!=noone && !myEnemy.knockedback){
-				id.damage=sqrt(power(xSp-myEnemy.xSp,2)+power(ySp-myEnemy.ySp,2))/90; // damage & knockback relative to speed of arrow
-				id.knockback=16*damage;
-				dealDamage(id.damage,id.knockback,myEnemy);//damage, knockback, health bar
+				damage=sqrt(power(xSp-myEnemy.xSp,2)+power(ySp-myEnemy.ySp,2))/90; // damage & knockback relative to speed of arrow
+				knockback=16*damage;
+				dealDamage(damage,knockback,myEnemy);//damage, knockback, health bar
 			}
 		}
 	}
 }
 else if(embedded){//if embedded in an enemy, move with the victim
 	if(instance_exists(myEnemy)){
-		x+=myEnemy.xSp;
-		y+=myEnemy.ySp;
+		x=myEnemy.x-embeddedX;
+		y=myEnemy.y-embeddedY;
 	}
 	else{instance_destroy();}
 	

@@ -5,7 +5,7 @@ v=0;
 grav=1;
 
 //fighting
-id.nocked=true;
+nocked=true;
 trajectories=true;
 inactive=false;
 embedded=false;
