@@ -9,8 +9,9 @@ function dealDamage(damage,knockback,target){//deals damage, knockback, creates 
 			ySp=-knockback;
 			xSp=knockback*sign(x-oPlayer.x);
 			mxSp=abs(xSp);
-			healthbar = instance_create_layer(x-30,y-30,"Enemies",oHealthBar);
-			healthbar.image_xscale=myHealth;
-			healthbar.myEnemy=id;
+			with(instance_create_layer(x-30,y-30,"Enemies",oHealthBar)){
+				image_xscale=other.myHealth;
+				myEnemy=other.id;
+			}
 	}
 }

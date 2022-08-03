@@ -7,6 +7,14 @@
 			currentEnemy =instance_find(oCyberduck,i);
 			draw_text(currentEnemy.x,currentEnemy.y-150,currentEnemy.myHealth);
 		}
+		if(instance_exists(oBow)){
+			draw_text(x,y-300,oBow.image_index>=1);
+		}
+		if(instance_exists(oArrow)){
+			draw_text(x,y-250,oArrow.xSp);
+			draw_text(x,y-200,oArrow.ySp);
+			draw_text(x,y-150,oArrow.damage);
+		}
 	}
 #endregion
 
@@ -14,5 +22,3 @@
 //outline for health bar for comparison
 
 //comments and code cleanup
-
-//add arrow to bow frame animations to remove a lot of the arrow "while knocked" code
