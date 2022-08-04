@@ -4,14 +4,13 @@
 
 function dealDamage(damage,knockback,target){//deals damage, knockback, creates healthbar above specified target, 
 	with(target){
-			myHealth-=damage;
-			knockedback=true;
-			ySp=-knockback;
-			xSp=knockback*sign(x-oPlayer.x);
-			mxSp=abs(xSp);
-			with(instance_create_layer(x-30,y-30,"Enemies",oHealthBar)){
-				image_xscale=other.myHealth;
-				myEnemy=other.id;
-			}
+		myHealth-=damage;
+		ySp=-knockback;
+		xSp+=knockback*sign(x-oPlayer.x);
+		mxSp=abs(xSp);
+		with(instance_create_layer(x-30,y-30,"Enemies",oHealthBar)){
+			image_xscale=other.myHealth;
+			myEnemy=other.id;
+		}
 	}
 }

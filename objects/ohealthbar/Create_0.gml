@@ -5,10 +5,7 @@ healthbar_fades = time_source_create(time_source_game,2,time_source_units_second
 	instance_destroy();
 });
 
-oldHealthbar=instance_place(x,y,oHealthBar);
-if(oldHealthbar!=noone){//if already a healthbar,destroy it cause it shows wrong health
-	with(oldHealthbar){
-		time_source_reset(healthbar_fades);
-		instance_destroy();
-	}
+with(instance_place(x,y,oHealthBar)){
+	time_source_reset(healthbar_fades);
+	instance_destroy();
 }

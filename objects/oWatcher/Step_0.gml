@@ -18,7 +18,5 @@ if(!instance_exists(oCyberduck) && room == rTest){
 }
 if(instance_exists(oCamera)){
 	x=oCamera.x;
-}
-else{
-	x=150;
+	y=room_height-650;
 }
