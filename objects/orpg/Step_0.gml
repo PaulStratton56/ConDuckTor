@@ -14,6 +14,5 @@ if(fire && delay<0){
 		speed=15;
 	}
 	oPlayer.xSp-=lengthdir_x(recoil,image_angle);
-	//oPlayer.y-=1;//temp solution, the player's yspeed gets reset to 0 because of clamp line in oPlayer step before it can take effect here
 	oPlayer.ySp-=lengthdir_y(recoil,image_angle);
 }
