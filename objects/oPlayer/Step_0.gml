@@ -9,6 +9,7 @@ keysCollected*=keysCollected>=0;//if keys collected is negative reset to 0
 	left = keyboard_check(ord("A"));
 	right = keyboard_check(ord("D"));
 	jump = keyboard_check_pressed(ord("W"));
+	//testing happy
 	
 	xMax = min((keysCollected+1)*1550+29,room_width)-abs(sprite_width/2);//prevent player from going to next room if key not collected
 	x = clamp(x + xSp,29+abs(sprite_width/2),xMax);
