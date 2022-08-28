@@ -1,1 +1,1 @@
-drawspeed=1;
+drawspeed=game_get_speed(gamespeed_fps)/60;//define drawspeed in terms of game framerate
