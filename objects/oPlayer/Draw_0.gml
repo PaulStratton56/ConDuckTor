@@ -15,5 +15,3 @@
 
 
 //outline for health bar for comparison
-
-//comments and code cleanup

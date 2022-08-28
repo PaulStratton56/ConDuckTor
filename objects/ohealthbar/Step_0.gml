@@ -11,7 +11,7 @@ if(!playersHealth){//players health bar should be permanent
 		instance_destroy();
 	}
 }
-else{
+else{//if players healthbar, align with camera
 	x=oCamera.x-oCamera.wWidth/2+20;
 	image_xscale=oPlayer.myHealth;
 }

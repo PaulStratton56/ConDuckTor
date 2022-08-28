@@ -31,7 +31,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "Object16",
+  "name": "oDebuggingLine",
   "tags": [],
   "resourceType": "GMObject",
 }
