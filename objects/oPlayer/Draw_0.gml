@@ -1,24 +1,17 @@
 #region //debugging
 	draw_self();
-	draw_set_color(0);
+	draw_set_color(c_white);
 	if(oWatcher.debugging){
-		draw_text(x,y-50, "Debugging Mode");
+		draw_text(x-30,y-75, "Debugging Mode");
 		for(var i =0;i<instance_number(oCyberduck);i++){
 			currentEnemy =instance_find(oCyberduck,i);
-			draw_text(currentEnemy.x,currentEnemy.y-150,currentEnemy.myHealth);
-		}
-		if(instance_exists(oBow)){
-			draw_text(x,y-300,oBow.image_index>=1);
-		}
-		if(instance_exists(oArrow)){
-			draw_text(x,y-250,oArrow.xSp);
-			draw_text(x,y-200,oArrow.ySp);
-			draw_text(x,y-150,oArrow.damage);
+			draw_text(currentEnemy.x,currentEnemy.y-170,currentEnemy.startDec);
+			draw_text(currentEnemy.x,currentEnemy.y-160,currentEnemy.mxSp);
+			draw_text(currentEnemy.x,currentEnemy.y-150,currentEnemy.xSp);
+			draw_text(currentEnemy.x,currentEnemy.y-140,currentEnemy.xAcc);
 		}
 	}
 #endregion
 
 
 //outline for health bar for comparison
-
-//comments and code cleanup
