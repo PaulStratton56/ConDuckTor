@@ -1,5 +1,6 @@
 {
   "resources": [
+    {"id":{"name":"pauseMenuFont","path":"fonts/pauseMenuFont/pauseMenuFont.yy",},"order":0,},
     {"id":{"name":"oRocket","path":"objects/oRocket/oRocket.yy",},"order":14,},
     {"id":{"name":"rBackgroundsample","path":"sprites/rBackgroundsample/rBackgroundsample.yy",},"order":1,},
     {"id":{"name":"sRocket","path":"sprites/sRocket/sRocket.yy",},"order":16,},
@@ -7,6 +8,7 @@
     {"id":{"name":"oKey","path":"objects/oKey/oKey.yy",},"order":12,},
     {"id":{"name":"oArrow","path":"objects/oArrow/oArrow.yy",},"order":2,},
     {"id":{"name":"oCamera","path":"objects/oCamera/oCamera.yy",},"order":7,},
+    {"id":{"name":"oMenu","path":"objects/oMenu/oMenu.yy",},"order":10,},
     {"id":{"name":"sKey","path":"sprites/sKey/sKey.yy",},"order":14,},
     {"id":{"name":"oMap","path":"objects/oMap/oMap.yy",},"order":10,},
     {"id":{"name":"sWatcher","path":"sprites/sWatcher/sWatcher.yy",},"order":11,},

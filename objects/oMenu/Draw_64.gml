@@ -55,7 +55,7 @@ if(pause){
 	}
 	
    //draw_text(room_width/2, room_height *0.4 + spacing * i, text); 
-	draw_text_transformed(room_width/2, room_height *0.4 + spacing * i, text, textSize, textSize, 0);
+	draw_text_transformed(700, 700 *0.4 + spacing * i, text, textSize, textSize, 0);
 	
  }
 }
