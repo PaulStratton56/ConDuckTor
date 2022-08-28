@@ -1,4 +1,4 @@
-/// @description Insert description here
-// You can write your code in this editor
+/// @description go to rTest, switch Watcher to Sun
+
 room_goto(rTest);
 oWatcher.image_index = 1;
