@@ -3,7 +3,8 @@
 global.cartNumber = 7;
 global.room_yMin=room_height-250;
 
-
+instance_create_layer(32,0,"Camera",oCamera);
+instance_create_layer(700,700,"PauseMenu",oMenu);
 
 //Room and cart generation
 room_width = 1550*global.cartNumber+29;
